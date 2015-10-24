@@ -1,0 +1,16 @@
+---
+- name: Add wine ppa
+  sudo: true
+  apt_repository: repo='ppa:ubuntu-wine/ppa'
+
+- name: Apt-Get Update
+  sudo: true
+  apt: update_cache=yes
+
+- name: Install wine
+  sudo: true
+  apt: name={{item}} force=yes state=present
+  with_items:
+      - playonlinux
+      - winbind
+
