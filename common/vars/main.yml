@@ -1,0 +1,10 @@
+---
+# Configurable For you
+username: leswing
+
+# Versions
+intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-14.1.5.tar.gz
+
+# Not really configurations
+# I should hardcode these
+chrome_apt_file: /etc/apt/sources.list.d/google-chrome.list

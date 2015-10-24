@@ -1,10 +1,10 @@
 ---
-- sudo: yes
-  tasks:
   - name: ensure apt cache is up to date
+    sudo: true
     apt: update_cache=yes
   - name: ensure packages are installed
     apt: name={{item}}
+    sudo: true
     with_items:
         - postgresql
         - postgresql-contrib

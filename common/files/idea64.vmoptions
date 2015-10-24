@@ -1,0 +1,14 @@
+-Xmx8192m
+-Xms8192m
+-XX:MaxPermSize=512m
+-XX:+UseG1GC
+-Xloggc:gc_log.log
+-XX:+PrintGCDetails
+-XX:+PrintGCTimeStamps
+-Djava.awt.headless=true
+-Dchemaxon.license.url=../LiveDesign/bin/license.cxl
+-Dlivedesign.license=../LiveDesign/bin/seurat.lic
+-Dchemwb.home=../LiveDesign
+-Dorg.apache.cxf.Logger=org.apache.cxf.common.logging.Log4jLogger
+-Dlivedesign.enable.console.log=true
+-Dorg.eclipse.jetty.LEVEL=WARN

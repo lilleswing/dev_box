@@ -1,7 +1,7 @@
 ---
 - name: apply common configuration to all nodes
   hosts: all
-  remote_user: root
+  remote_user: "{{ username }}"
 
   roles:
     - common

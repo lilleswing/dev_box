@@ -1,0 +1,19 @@
+---
+- name: Apt-Get Update
+  sudo: true
+  apt: update_cache=yes
+
+- name: Install node
+  sudo: true
+  apt: name={{item}} state=present
+  with_items:
+    - npm
+    - nodejs
+
+- name: Install grunt cli
+  sudo: true
+  npm: name=grunt-cli global=yes
+
+- name: Install closure linter
+  sudo: true
+  command: pip install closure-linter

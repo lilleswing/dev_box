@@ -1,0 +1,8 @@
+---
+  - include: zsh.yml
+  - include: postgres.yml
+  - include: chrome.yml
+  - include: java.yml
+  - include: vim.yml
+  - include: intellij.yml
+  - include: node.yml

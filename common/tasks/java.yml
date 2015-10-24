@@ -1,0 +1,3 @@
+---
+- name: Add oracle java ppa
+  apt_repository: repo='ppa:webupd8team/java'
