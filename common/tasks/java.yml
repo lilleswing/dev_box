@@ -1,3 +1,12 @@
 ---
 - name: Add oracle java ppa
+  sudo: true
   apt_repository: repo='ppa:webupd8team/java'
+
+- name: Apt-Get Update
+  sudo: true
+  apt: update_cache=yes
+
+- name: Install maven
+  sudo: true
+  apt: name=maven state=present

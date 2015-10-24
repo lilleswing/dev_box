@@ -15,6 +15,20 @@
       - fortune
       - libreadline5
       - libreadline6
+      - p7zip-full
+      - build-essential
+      - ant
+      - python-dev
+      - python-virtualenv
+      - python-pip
+      - xclip
+      - sqlite3
+      - htop
+      - mercurial
+
+  - name: Install matplotlib build deps
+    sudo: true
+    apt: name=python-matplotlib state=build-dep
 
   - name: tmux movement
     copy: src=tmux.conf dest=/home/{{username}}/.tmux.conf

@@ -5,7 +5,6 @@
 -Xloggc:gc_log.log
 -XX:+PrintGCDetails
 -XX:+PrintGCTimeStamps
--Djava.awt.headless=true
 -Dchemaxon.license.url=../LiveDesign/bin/license.cxl
 -Dlivedesign.license=../LiveDesign/bin/seurat.lic
 -Dchemwb.home=../LiveDesign
