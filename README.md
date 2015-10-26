@@ -2,9 +2,18 @@
 Ansible Playbook for setting up a dev box on xubuntu 15.10
 
 ## Manual TODO before running
-* Install Ansible
+* Install Ansible/python
 * Install openssh-server
 * Allow Passwordless ssh to localhost
+ 
+``` bash
+sudo apt-get install python-virtualenv openssh-server
+mkdir -p ~/bin/venvs
+cd ~/bin/venvs
+virtualenv ansible
+source ansible/bin/activate
+pip install ansible
+```
 
 ## Manual TODO after running
 
