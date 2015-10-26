@@ -1,7 +1,12 @@
 # dev_box
 Ansible Playbook for setting up a dev box on xubuntu 15.10
 
-# Manual TODO after running
+## Manual TODO before running
+* Install Ansible
+* Install openssh-server
+* Allow Passwordless ssh to localhost
+
+## Manual TODO after running
 
 * Setup Chrome profiles
 * Set default terminal to terminator
