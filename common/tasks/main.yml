@@ -9,3 +9,5 @@
   - include: wine.yml
   - include: hipchat.yml
   - include: gimp.yml
+  - include: spotify.yml
+  - include: vlc.yml

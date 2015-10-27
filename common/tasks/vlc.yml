@@ -1,14 +1,13 @@
 ---
-- name: Add gimp ppa
-  sudo: true
-  apt_repository: repo='ppa:otto-kesselgulasch/gimp'
-
 - name: Apt-Get Update
   sudo: true
   apt: update_cache=yes
 
-- name: Install gimp
+- name: Install VLC
   sudo: true
   apt: name={{item}} force=yes state=present
   with_items:
-      - gimp
+    - vlc
+    - browser-plugin-vlc
+    - libavcodec-extra
+

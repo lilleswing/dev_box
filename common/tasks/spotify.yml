@@ -1,0 +1,23 @@
+---
+- name: Add Spotify Repo
+  sudo: true
+  script: install_spotify_repo.sh creates=/etc/apt/sources.list.d/spotify.list
+
+- name: Apt-Get Update
+  sudo: true
+  apt: update_cache=yes
+
+# Needed until spotify repackages with libgcrypt20
+- name: Copy libgcryp11
+  copy: src=libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb dest=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
+- name: Install libgcrypt11
+  sudo: true
+  apt: deb=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb state=present
+
+- name: Installing Spotify
+  apt: name={{item}} state=present
+  sudo: true
+  with_items:
+    - libgcrypt11-dev
+    - libgcrypt20
+    - spotify-client
