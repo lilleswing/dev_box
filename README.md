@@ -29,3 +29,5 @@ pip install ansible
   * sudo apt-get install oracle-java8-installer
 * Install Evernote As Chrome Webapp and link to /usr/local/bin/evernote
 * Install Postman as chrome webapp and link to /usr/local/bin/postman
+* Keyboard Shortcuts for Spotify
+  * dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
