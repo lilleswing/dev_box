@@ -9,6 +9,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 cat ~/.ssh/id_rsa.pub > ~/.ssh/authorized_keys
 git clone https://github.com/lilleswing/dev_box
 cd dev_box
+vi common/vars/main.yml
 bash run.sh
 ```
 
