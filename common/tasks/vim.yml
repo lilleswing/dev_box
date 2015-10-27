@@ -8,6 +8,7 @@
     - curl
 
 - name: Set vim as default editor (Ubuntu)
+  sudo: true
   command: update-alternatives --set editor /usr/bin/vim.basic
 
 - name: vimrc movement
