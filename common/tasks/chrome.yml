@@ -5,16 +5,20 @@
       ignore_errors: True
 
     - name: Add Google Chrome key
+      sudo: True
       shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
       when: google_apt_exists.rc == 1
 
     - name: Add Google Chrome repo
+      sudo: True
       copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest={{chrome_apt_file}} owner=root group=root mode=644
       when: google_apt_exists.rc == 1
 
     - name: Update apt cache
+      sudo: True
       apt: update_cache=yes
       when: google_apt_exists.rc == 1
 
     - name: Install Google Chrome
+      sudo: True
       apt: pkg=google-chrome-stable state=installed
