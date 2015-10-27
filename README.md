@@ -27,3 +27,4 @@ pip install ansible
   * sudo apt-get install oracle-java7-installer
   * sudo apt-get install oracle-java8-installer
 * Install Evernote As Chrome Webapp and link to /usr/local/bin/evernote
+* Install Postman as chrome webapp and link to /usr/local/bin/postman
