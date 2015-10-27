@@ -18,6 +18,7 @@ pip install ansible
 ## Manual TODO after running
 
 * Install Dropbox
+* Change Shell to zsh
 * Setup Chrome profiles
 * Set default terminal to terminator
 * Set desktop wallpapers
