@@ -1,0 +1,12 @@
+---
+- name: Add Hipchat to sources
+  sudo: true
+  script: install_hipchat.sh creates=/etc/apt/sources.list.d/atlassian-hipchat.list
+
+- name: ensure apt cache is up to date
+  sudo: true
+  apt: update_cache=yes
+
+- name: Install Hipchat
+  sudo: true
+  apt: name=hipchat state=present

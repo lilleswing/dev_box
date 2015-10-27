@@ -7,3 +7,5 @@
   - include: intellij.yml
   - include: node.yml
   - include: wine.yml
+  - include: hipchat.yml
+  - include: gimp.yml
