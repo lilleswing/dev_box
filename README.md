@@ -18,6 +18,7 @@ pip install ansible
 ## Manual TODO after running
 
 * Install Dropbox
+* Verify shell is zsh (unsure what happens here....)
 * Setup Chrome profiles
 * Set default terminal to terminator
 * Set desktop wallpapers
@@ -27,3 +28,4 @@ pip install ansible
   * sudo apt-get install oracle-java7-installer
   * sudo apt-get install oracle-java8-installer
 * Install Evernote As Chrome Webapp and link to /usr/local/bin/evernote
+* Install Postman as chrome webapp and link to /usr/local/bin/postman
