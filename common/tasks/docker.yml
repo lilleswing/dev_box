@@ -1,0 +1,27 @@
+---
+- name: Install Docker repo
+  sudo: true
+  script: install_docker_repo.sh
+
+- name: Install docker.list
+  sudo: true
+  template: src=docker.list.j2 dest=/etc/apt/sources.list.d/docker.list
+
+- name: Apt-Get Update
+  sudo: true
+  apt: update_cache=yes
+
+- name: Installing Docker
+  apt: name={{item}} state=present
+  sudo: true
+  with_items:
+    - docker-engine
+    - bridge-utils
+
+- name: Move Docker Configuration to non-standard subnet
+  sudo: true
+  copy: src=docker.conf dest=/etc/default/docker
+
+- name: Delete old network bridge
+  sudo: true
+  script: docker_delete_network_bridge.sh

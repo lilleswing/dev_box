@@ -11,3 +11,4 @@
   - include: gimp.yml
   - include: spotify.yml
   - include: vlc.yml
+  - include: docker.yml
