@@ -25,3 +25,6 @@
 - name: Delete old network bridge
   sudo: true
   script: docker_delete_network_bridge.sh
+  
+  # You might still need to copy over docker.service to /lib/systemd/system/docker.service
+  # It depends if docker has gotten its shit together to source /etc/default/docker

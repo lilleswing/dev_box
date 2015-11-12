@@ -66,4 +66,6 @@ export JAVA_HOME_COMPILE=$JAVA_8_HOME
 export JAVA_HOME=$JAVA_7_HOME
 export JAVA=$JAVA_HOME/bin/java
 
+export GOPATH=$HOME/bin/go
+
 fortune -a | cowsay -f tux
