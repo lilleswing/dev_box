@@ -13,3 +13,4 @@
   - include: vlc.yml
   - include: docker.yml
   - include: golang.yml
+  - include: latex.yml
