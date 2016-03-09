@@ -3,7 +3,7 @@
 username: leswing
 
 # Versions
-intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-14.1.5.tar.gz
+intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz
 docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-wily main
 
 # Not really configurations
