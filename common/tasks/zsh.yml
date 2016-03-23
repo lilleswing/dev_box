@@ -37,7 +37,7 @@
     git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{username}}/.oh-my-zsh
 
   - name: zshrc movement
-    copy: src=zsh.rc dest=/home/{{username}}/.zshrc backup=yes
+    copy: src=zsh.rc dest=/home/{{username}}/.zshrc backup=yes force=no
 
   - name: install zsh-syntax-highlighting
     git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/home/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting

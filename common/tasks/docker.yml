@@ -22,9 +22,12 @@
   sudo: true
   copy: src=docker.conf dest=/etc/default/docker
 
+  # You might still need to copy over docker.service to /lib/systemd/system/docker.service
+  # It depends if docker has gotten its shit together to source /etc/default/docker
+- name: Update Docket Service File
+  sudo: true
+  copy: src=docker.service dest=/lib/systemd/system/docker.service
+
 - name: Delete old network bridge
   sudo: true
   script: docker_delete_network_bridge.sh
-  
-  # You might still need to copy over docker.service to /lib/systemd/system/docker.service
-  # It depends if docker has gotten its shit together to source /etc/default/docker

@@ -1,7 +1,14 @@
--Xmx8192m
--Xms8192m
--XX:MaxPermSize=512m
+-Xms4096m
+-Xmx4096m
+-XX:ReservedCodeCacheSize=240m
 -XX:+UseG1GC
+-XX:SoftRefLRUPolicyMSPerMB=50
+-ea
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-Dawt.useSystemAAFontSettings=lcd
 -Xloggc:gc_log.log
 -XX:+PrintGCDetails
 -XX:+PrintGCTimeStamps
