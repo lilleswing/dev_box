@@ -17,6 +17,8 @@
   with_items:
     - docker-engine
     - bridge-utils
+    - apt-transport-https
+    - ca-certificates
 
 - name: Move Docker Configuration to non-standard subnet
   sudo: true
