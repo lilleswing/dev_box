@@ -51,21 +51,24 @@ alias grep="grep --color=always"
 plugins=(git zsh-syntax-highlighting autojump)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
 
 # User configuration
-export SCHRODINGER="/media/software/OB/2014-3/build02/Linux-x86_64"
+export SCHRODINGER="/media/leswing/662fbb2d-f604-4222-bf5c-92d2dbf0ad2b/build08"
 export SCHRODINGER_TEMP_PROJECT="/tmp/schrodinger"
 
 export JAVA_6_HOME="/usr/lib/jvm/java-6-oracle"
 export JAVA_7_HOME="/usr/lib/jvm/java-7-oracle"
 export JAVA_8_HOME="/usr/lib/jvm/java-8-oracle"
 
-export JAVA_HOME_RUN=$JAVA_7_HOME
+export JAVA_HOME_RUN=$JAVA_8_HOME
 export JAVA_HOME_COMPILE=$JAVA_8_HOME
-export JAVA_HOME=$JAVA_7_HOME
+export JAVA_HOME=$JAVA_8_HOME
 export JAVA=$JAVA_HOME/bin/java
 
 export GOPATH=$HOME/bin/go
+export PATH="$GOPATH/bin:$PATH"
+
+export PATH="/home/leswing/anaconda2/bin:$PATH"
+source activate daily
 
 fortune -a | cowsay -f tux

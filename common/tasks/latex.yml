@@ -1,11 +1,13 @@
 ---
 - name: Apt-Get Update
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 - name: Install Latex
-  sudo: true
+  become: true
   apt: name={{item}} force=yes state=present
   with_items:
     - texlive-full
     - texmaker
+  when: ansible_os_family == "Debian"

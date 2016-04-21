@@ -3,22 +3,25 @@
       command: test -f {{chrome_apt_file}}
       register: google_apt_exists
       ignore_errors: True
+      when: ansible_os_family == "Debian"
+
 
     - name: Add Google Chrome key
-      sudo: True
+      become: True
       shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-      when: google_apt_exists.rc == 1
+      when: google_apt_exists.rc == 1 and ansible_os_family == "Debian"
 
     - name: Add Google Chrome repo
-      sudo: True
+      become: True
       copy: content="deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" dest={{chrome_apt_file}} owner=root group=root mode=644
-      when: google_apt_exists.rc == 1
+      when: google_apt_exists.rc == 1 and ansible_os_family == "Debian"
 
     - name: Update apt cache
-      sudo: True
+      become: True
       apt: update_cache=yes
-      when: google_apt_exists.rc == 1
+      when: google_apt_exists.rc == 1 and ansible_os_family == "Debian"
 
     - name: Install Google Chrome
-      sudo: True
+      become: True
       apt: pkg=google-chrome-stable state=installed
+      when: ansible_os_family == "Debian"

@@ -1,11 +1,12 @@
 ---
   - name: Apt-Get Update
-    sudo: true
+    become: true
     apt: update_cache=yes
+    when: ansible_os_family == "Debian"
 
   - name: Installing utilities
     apt: name={{item}} state=present
-    sudo: true
+    become: true
     with_items:
       - tmux
       - autojump
@@ -25,22 +26,29 @@
       - sqlite3
       - htop
       - mercurial
+    when: ansible_os_family == "Debian"
 
   - name: Install matplotlib build deps
-    sudo: true
-    apt: name=python-matplotlib state=build-dep
+    become: true
+    apt: name=python-matplotlib
+    when: ansible_os_family == "Debian"
 
   - name: tmux movement
     copy: src=tmux.conf dest=/home/{{username}}/.tmux.conf
+    when: ansible_os_family == "Debian"
 
   - name: oh_my_zsh install
     git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{username}}/.oh-my-zsh
+    when: ansible_os_family == "Debian"
 
   - name: zshrc movement
     copy: src=zsh.rc dest=/home/{{username}}/.zshrc backup=yes force=no
+    when: ansible_os_family == "Debian"
 
   - name: install zsh-syntax-highlighting
     git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/home/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    when: ansible_os_family == "Debian"
 
   - name: terminator solarized
     script: set_terminator_solarized.sh
+    when: ansible_os_family == "Debian"

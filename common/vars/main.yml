@@ -1,10 +1,11 @@
 ---
 # Configurable For you
-username: leswing
+username: karl
 
 # Versions
-intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz
-docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-wily main
+intellij_binary_url: https://d1opms6zj7jotq.cloudfront.net/idea/ideaIU-2016.1.1.tar.gz
+docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-xenial main
+
 
 # Not really configurations
 # I should hardcode these

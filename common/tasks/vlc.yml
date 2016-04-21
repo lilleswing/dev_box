@@ -1,13 +1,14 @@
 ---
 - name: Apt-Get Update
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 - name: Install VLC
-  sudo: true
+  become: true
   apt: name={{item}} force=yes state=present
   with_items:
     - vlc
     - browser-plugin-vlc
     - libavcodec-extra
-
+  when: ansible_os_family == "Debian"

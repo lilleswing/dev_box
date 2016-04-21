@@ -1,27 +1,38 @@
 ---
 - name: Installing vims
-  sudo: true
+  become: true
   apt: name={{item}} state=present
+  when: ansible_os_family == "Debian"
   with_items:
     - vim
     - vim-gnome
     - curl
 
 - name: Set vim as default editor (Ubuntu)
-  sudo: true
+  become: true
   command: update-alternatives --set editor /usr/bin/vim.basic
+  when: ansible_os_family == "Debian"
 
 - name: vimrc movement
   copy: src=vimrc dest=/home/{{username}}/.vimrc
+  when: ansible_os_family == "Debian"
 
 - name: install pathogen
   script: install_pathogen.sh creates=/home/{{username}}/.vim/autoload/pathogen.vim
+  when: ansible_os_family == "Debian"
 
 - name: install solarized
   script: install_solarized_vim.sh creates=/home/{{username}}/.vim/colors/solarized.vim
+  when: ansible_os_family == "Debian"
 
 - name: install NERDTree
   script: install_nerdtree.sh creates=/home/{{username}}/.vim/bundle/nerdtree
+  when: ansible_os_family == "Debian"
 
 - name: install syntastic
   script: install_syntastic.sh creates=/home/{{username}}/.vim/bundle/syntastic
+  when: ansible_os_family == "Debian"
+
+- name: install python-mode
+  script: install_pythonmodevim.sh creates=/home/{{username}}/.vim/bundle/python-mode
+  when: ansible_os_family == "Debian"

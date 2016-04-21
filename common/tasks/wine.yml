@@ -1,15 +1,19 @@
 ---
 - name: Add wine ppa
-  sudo: true
+  become: true
   apt_repository: repo='ppa:ubuntu-wine/ppa'
+  when: ansible_os_family == "Debian"
+
 
 - name: Apt-Get Update
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 - name: Install wine
-  sudo: true
+  become: true
   apt: name={{item}} force=yes state=present
+  when: ansible_os_family == "Debian"
   with_items:
       - playonlinux
       - winbind

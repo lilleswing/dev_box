@@ -1,35 +1,42 @@
 ---
 - name: Install Docker repo
-  sudo: true
+  become: true
   script: install_docker_repo.sh
+  when: ansible_os_family == "Debian"
 
 - name: Install docker.list
-  sudo: true
+  become: true
   template: src=docker.list.j2 dest=/etc/apt/sources.list.d/docker.list
+  when: ansible_os_family == "Debian"
 
 - name: Apt-Get Update
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 - name: Installing Docker
   apt: name={{item}} state=present
-  sudo: true
+  become: true
   with_items:
     - docker-engine
     - bridge-utils
     - apt-transport-https
     - ca-certificates
+  when: ansible_os_family == "Debian"
 
 - name: Move Docker Configuration to non-standard subnet
-  sudo: true
+  become: true
   copy: src=docker.conf dest=/etc/default/docker
+  when: ansible_os_family == "Debian"
 
   # You might still need to copy over docker.service to /lib/systemd/system/docker.service
   # It depends if docker has gotten its shit together to source /etc/default/docker
 - name: Update Docket Service File
-  sudo: true
+  become: true
   copy: src=docker.service dest=/lib/systemd/system/docker.service
+  when: ansible_os_family == "Debian"
 
 - name: Delete old network bridge
-  sudo: true
+  become: true
   script: docker_delete_network_bridge.sh
+  when: ansible_os_family == "Debian"

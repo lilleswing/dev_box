@@ -1,23 +1,29 @@
 ---
 - name: Add Spotify Repo
-  sudo: true
+  become: true
   script: install_spotify_repo.sh creates=/etc/apt/sources.list.d/spotify.list
+  when: ansible_os_family == "Debian"
+
 
 - name: Apt-Get Update
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 # Needed until spotify repackages with libgcrypt20
 - name: Copy libgcryp11
   copy: src=libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb dest=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
+
 - name: Install libgcrypt11
-  sudo: true
+  become: true
   apt: deb=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb state=present
+  when: ansible_os_family == "Debian"
 
 - name: Installing Spotify
   apt: name={{item}} state=present
-  sudo: true
+  become: true
   with_items:
     - libgcrypt11-dev
     - libgcrypt20
     - spotify-client
+  when: ansible_os_family == "Debian"

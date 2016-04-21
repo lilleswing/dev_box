@@ -1,12 +1,15 @@
 ---
 - name: Add Hipchat to sources
-  sudo: true
+  become: true
   script: install_hipchat.sh creates=/etc/apt/sources.list.d/atlassian-hipchat.list
+  when: ansible_os_family == "Debian"
 
 - name: ensure apt cache is up to date
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 - name: Install Hipchat
-  sudo: true
+  become: true
   apt: name=hipchat state=present
+  when: ansible_os_family == "Debian"

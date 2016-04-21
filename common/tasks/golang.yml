@@ -1,11 +1,12 @@
 ---
 - name: Apt-Get Update
-  sudo: true
+  become: true
   apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 - name: Installing golang
   apt: name={{item}} state=present
-  sudo: true
+  become: true
   with_items:
     - golang
-
+  when: ansible_os_family == "Debian"

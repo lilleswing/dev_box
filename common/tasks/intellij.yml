@@ -1,12 +1,16 @@
 ---
 - name: Install Intellij
   script: install_intellij.sh {{ intellij_binary_url }} creates=/home/{{username}}/bin/intellij/exists.txt
+  when: ansible_os_family == "Debian"
 
 - name: Create Conf Folder
   file: path=/home/{{username}}/conf state=directory
+  when: ansible_os_family == "Debian"
 
 - name: Download Intellij Solarized Colorscheme
   git: repo=https://github.com/jkaving/intellij-colors-solarized.git dest=/home/{{username}}/conf/intellij-colors-solarized
+  when: ansible_os_family == "Debian"
 
 - name: Update Intellij JVM flags
   copy: src=idea64.vmoptions dest=/home/{{username}}/bin/intellij/bin/idea64.vmoptions
+  when: ansible_os_family == "Debian"
