@@ -52,3 +52,43 @@
   - name: terminator solarized
     script: set_terminator_solarized.sh
     when: ansible_os_family == "Debian"
+
+# OSX
+  - name: Installing utilities
+    homebrew: name={{item}} state=present
+    with_items:
+      - tmux
+      - autojump
+      - zsh
+      - cowsay
+      - sqlite3
+      - htop-osx
+      - mercurial
+      - gcc
+      - readline
+      - wget
+      - nmap
+      - python
+      - rtorrent
+      - go
+      - jython
+      - openssl
+    when: ansible_os_family == "Darwin"
+
+  - name: Installing iterm
+    homebrew_cask: name={{item}} state=present
+    with_items:
+      - iterm2
+    when: ansible_os_family == "Darwin"
+
+  - name: oh_my_zsh install
+    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/Users/{{username}}/.oh-my-zsh
+    when: ansible_os_family == "Darwin"
+
+  - name: zshrc movement
+    copy: src=zsh.rc dest=/Users/{{username}}/.zshrc backup=yes force=no
+    when: ansible_os_family == "Darwin"
+
+  - name: install zsh-syntax-highlighting
+    git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/Users/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    when: ansible_os_family == "Darwin"
