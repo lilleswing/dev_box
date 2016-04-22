@@ -1,0 +1,6 @@
+# OSX
+- name: Installing Evernote
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - evernote
+  when: ansible_os_family == "Darwin"
