@@ -12,3 +12,10 @@
     - browser-plugin-vlc
     - libavcodec-extra
   when: ansible_os_family == "Debian"
+
+# OSX
+- name: Installing VLC
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - vlc
+  when: ansible_os_family == "Darwin"

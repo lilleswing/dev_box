@@ -21,3 +21,10 @@
   become: true
   command: pip install closure-linter
   when: ansible_os_family == "Debian"
+
+# OSX
+- name: Installing node
+  homebrew: name={{item}} state=present
+  with_items:
+    - node
+  when: ansible_os_family == "Darwin"

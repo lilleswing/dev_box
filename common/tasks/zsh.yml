@@ -62,7 +62,7 @@
       - zsh
       - cowsay
       - sqlite3
-      - htop-osx
+      - htop
       - mercurial
       - gcc
       - readline
@@ -70,7 +70,6 @@
       - nmap
       - python
       - rtorrent
-      - go
       - jython
       - openssl
     when: ansible_os_family == "Darwin"

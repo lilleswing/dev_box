@@ -10,3 +10,10 @@
   with_items:
     - golang
   when: ansible_os_family == "Debian"
+
+# OSX
+- name: Installing golang
+  homebrew: name={{item}} state=present
+  with_items:
+    - go
+  when: ansible_os_family == "Darwin"

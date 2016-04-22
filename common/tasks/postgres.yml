@@ -1,18 +1,25 @@
 ---
-  - name: ensure apt cache is up to date
-    become: true
-    apt: update_cache=yes
-    when: ansible_os_family == "Debian"
+- name: ensure apt cache is up to date
+  become: true
+  apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
 
-  - name: ensure packages are installed
-    apt: name={{item}} state=present
-    become: true
-    when: ansible_os_family == "Debian"
-    with_items:
-        - postgresql
-        - postgresql-contrib
-        - postgresql-client
-        - libpq-dev
-        - python-psycopg2
-        - pgadmin3
+- name: ensure packages are installed
+  apt: name={{item}} state=present
+  become: true
+  when: ansible_os_family == "Debian"
+  with_items:
+    - postgresql
+    - postgresql-contrib
+    - postgresql-client
+    - libpq-dev
+    - python-psycopg2
+    - pgadmin3
+
+# OSX
+- name: Installing utilities
+  homebrew: name={{item}} state=present
+  with_items:
+    - node
+  when: ansible_os_family == "Darwin"
