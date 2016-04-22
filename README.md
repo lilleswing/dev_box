@@ -15,7 +15,6 @@ bash run.sh
 
 ## Manual TODO after running
 
-* Install Dropbox
 * chsh -s /bin/zsh
 * Setup Chrome profiles
 * Set default terminal to terminator
