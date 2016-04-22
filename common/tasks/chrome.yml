@@ -27,5 +27,5 @@
 
 # OSX
 - name: Install Google Chrome
-  homebrew_cask: pkg=google-chrome state=present
+  homebrew_cask: name=google-chrome state=present
   when: ansible_os_family == "Darwin"
