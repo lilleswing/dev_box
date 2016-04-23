@@ -44,14 +44,16 @@ setw -g mode-keys vi
 bind-key -t vi-copy v begin-selection
 unbind -t vi-copy Enter
 
-#OSX Copy Paste
-#bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-#bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
-#LINUX
+{% if ansible_os_family is equalto "Debian" %}
 bind-key -t vi-copy y copy-pipe "xclip -sel clip -i"
 bind-key -t vi-copy Enter copy-pipe "xclip -sel clip -i"
+{% endif %}
 
+{% if ansible_os_family is equalto "Darwin" %}
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+{% endif %}
 
 # Allow the arrow key to be used immediately after changing windows
 set-option -g repeat-time 0

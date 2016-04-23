@@ -34,7 +34,7 @@
     when: ansible_os_family == "Debian"
 
   - name: tmux movement
-    copy: src=tmux.conf dest=/home/{{username}}/.tmux.conf
+    template: src=templates/tmux.conf.j2 dest=/home/{{username}}/.tmux.conf
     when: ansible_os_family == "Debian"
 
   - name: oh_my_zsh install

@@ -52,8 +52,8 @@ plugins=(git zsh-syntax-highlighting autojump)
 
 source $ZSH/oh-my-zsh.sh
 
-{% if ansible_os_family is equalto "Debian" %}
 # User configuration
+{% if ansible_os_family is equalto "Debian" %}
 export SCHRODINGER="/media/leswing/662fbb2d-f604-4222-bf5c-92d2dbf0ad2b/build08"
 export SCHRODINGER_TEMP_PROJECT="/tmp/schrodinger"
 
@@ -67,10 +67,15 @@ export JAVA_HOME=$JAVA_8_HOME
 export JAVA=$JAVA_HOME/bin/java
 
 export GOPATH=$HOME/bin/go
-export PATH="$GOPATH/bin:$PATH"
 
 export PATH="/home/leswing/anaconda2/bin:$PATH"
 source activate daily
 {% endif %}
+
+{% if ansible_os_family is equalto "Darwin" %}
+export GOPATH=/Users/leswing/bin/go
+alias gvim='mvim'
+{% endif %}
+export PATH="$GOPATH/bin:$PATH"
 
 fortune -a | cowsay -f tux
