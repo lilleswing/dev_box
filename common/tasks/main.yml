@@ -14,3 +14,4 @@
   - include: docker.yml
   - include: golang.yml
   - include: latex.yml
+  - include: shutter.yml

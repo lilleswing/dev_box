@@ -1,0 +1,17 @@
+---
+- name: Add Shutter
+  become: true
+  apt_repository: repo='ppa:shutter/ppa'
+  when: ansible_os_family == "Debian"
+
+- name: Apt-Get Update
+  become: true
+  apt: update_cache=yes
+  when: ansible_os_family == "Debian"
+
+- name: Install Shutter
+  become: true
+  apt: name={{item}} force=yes state=present
+  when: ansible_os_family == "Debian"
+  with_items:
+      - shutter
