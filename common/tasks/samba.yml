@@ -1,0 +1,15 @@
+---
+- name: Apt-Get Update
+  become: true
+  apt: update_cache=yes
+  when: ansible_os_family == "Debian"
+
+- name: Installing samba and cifs utils
+  become: true
+  apt: name={{item}} state=present
+  when: ansible_os_family == "Debian"
+  with_items:
+    - samba
+    - samba-dev
+    - cifs-utils
+    - fuse
