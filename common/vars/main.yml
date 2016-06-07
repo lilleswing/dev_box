@@ -3,7 +3,7 @@
 username: leswing
 
 # Versions
-intellij_binary_url: https://d1opms6zj7jotq.cloudfront.net/idea/ideaIU-2016.1.1.tar.gz
+intellij_binary_url: https://download-cf.jetbrains.com/idea/ideaIU-2016.1.3.tar.gz
 docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-xenial main
 
 
