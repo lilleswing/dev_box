@@ -16,3 +16,4 @@
   - include: latex.yml
   - include: shutter.yml
   - include: samba.yml
+  #- include: monit.yml
