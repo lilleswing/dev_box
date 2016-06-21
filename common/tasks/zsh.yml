@@ -53,6 +53,11 @@
     script: set_terminator_solarized.sh
     when: ansible_os_family == "Debian"
 
+  - name: terminator conf movement
+    template: src=templates/terminator.config.j2 dest=/home/{{username}}/.config/terminator/config
+    when: ansible_os_family == "Debian"
+
+
 # OSX
   - name: Installing utilities
     homebrew: name={{item}} state=present
