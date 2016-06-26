@@ -13,7 +13,7 @@
 
 - name: Apply firewall Configurations
   become: true
-  template: src=templates/rules.v4.j2 dest=/etc/iptables/rules.v4
+  template: src=templates/rules.v4.j2 dest=/etc/iptables/rules.v4 force=no
   when: ansible_os_family == "Debian"
 
 - name: Restart firewall with New Configurations
