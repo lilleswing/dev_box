@@ -11,13 +11,12 @@
   with_items:
     - iptables-persistent
 
-- name: Apply Monit Configurations
+- name: Apply firewall Configurations
   become: true
-  force: no
   template: src=templates/rules.v4.j2 dest=/etc/iptables/rules.v4
   when: ansible_os_family == "Debian"
 
-- name: Restart Monit with New Configurations
+- name: Restart firewall with New Configurations
   become: true
-  service: name=netfilter-persistent state=reloaded
+  service: name=iptables-persistent state=reloaded
   when: ansible_os_family == "Debian"
