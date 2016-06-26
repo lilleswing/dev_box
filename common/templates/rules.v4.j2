@@ -12,6 +12,8 @@
 # Acceptable UDP traffic
 
 # Acceptable TCP traffic
+# NOTE(LESWING) Main location to add services
+# Only open SSH by default
 -A TCP -p tcp --dport 22 -j ACCEPT
 
 # Acceptable ICMP traffic
