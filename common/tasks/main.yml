@@ -21,3 +21,4 @@
 
   #- include: monit.yml
   #- include: samba.yml
+  #- include: jenkins.yml
