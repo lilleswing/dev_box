@@ -1,0 +1,23 @@
+---
+- name: ensure apt cache is up to date
+  become: true
+  apt: update_cache=yes cache_valid_time=3600
+  when: ansible_os_family == "Debian"
+
+- name: ensure packages are installed
+  apt: name={{item}} state=present
+  become: true
+  when: ansible_os_family == "Debian"
+  with_items:
+    - iptables-persistent
+
+- name: Apply Monit Configurations
+  become: true
+  force: no
+  template: src=templates/rules.v4.j2 dest=/etc/iptables/rules.v4
+  when: ansible_os_family == "Debian"
+
+- name: Restart Monit with New Configurations
+  become: true
+  service: name=netfilter-persistent state=reloaded
+  when: ansible_os_family == "Debian"
