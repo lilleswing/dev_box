@@ -18,5 +18,10 @@
 
 - name: Restart firewall with New Configurations
   become: true
-  service: name=iptables-persistent state=reloaded
-  when: ansible_os_family == "Debian"
+  service: name=iptables-persistent state=restarted
+  when: ansible_os_family == "Debian" and ansible_distribution_version=="14.04"
+
+- name: Restart firewall with New Configurations
+  become: true
+  service: name=netfilter-persistent state=restarted
+  when: ansible_os_family == "Debian" and ansible_distribution_version=="16.04"
