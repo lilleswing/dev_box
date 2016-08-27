@@ -30,3 +30,6 @@ bash run.sh
 
 # Current Issues
 * Docker does not work as docker-engine does not have a .deb yet
+# Need to add pass support
+# Need to download tools
+# Conda Support
