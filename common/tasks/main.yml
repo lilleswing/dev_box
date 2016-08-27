@@ -6,18 +6,19 @@
   - include: node.yml
   - include: golang.yml
   - include: shutter.yml
-  - include: firewall.yml
+  #- include: firewall.yml
 
-  #- include: postgres.yml
-  #- include: intellij.yml
-  #- include: hipchat.yml
+  - include: postgres.yml
+  - include: intellij.yml
+  - include: hipchat.yml
+  - include: nginx.yml
   #- include: docker.yml
   #- include: latex.yml
 
   #- include: wine.yml
-  #- include: spotify.yml
-  #- include: vlc.yml
-  #- include: gimp.yml
+  - include: spotify.yml
+  - include: vlc.yml
+  - include: gimp.yml
 
   #- include: monit.yml
   #- include: samba.yml
