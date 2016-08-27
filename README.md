@@ -3,7 +3,7 @@ Ansible Playbook for setting up a dev box on xubuntu 16.04
 
 ## Manual TODO before running
 ``` bash
-sudo apt-get install python-dev python-pip git openssh-server
+sudo apt-get install python-dev python-pip git openssh-server libssl-dev
 sudo pip install ansible[all]
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 cat ~/.ssh/id_rsa.pub > ~/.ssh/authorized_keys
