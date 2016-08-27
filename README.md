@@ -30,6 +30,7 @@ bash run.sh
 
 # Current Issues
 * Docker does not work as docker-engine does not have a .deb yet
-# Need to add pass support
-# Need to download tools
-# Conda Support
+* Need to add pass support
+* Need to download tools
+* Conda Support
+* git config --global user.email, user.name is not getting set
