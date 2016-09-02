@@ -5,6 +5,7 @@
   - include: vim.yml
   - include: node.yml
   - include: golang.yml
+  - include: r-lang.yml
   - include: shutter.yml
   #- include: firewall.yml
 
