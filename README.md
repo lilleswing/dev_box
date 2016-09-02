@@ -18,19 +18,13 @@ bash run.sh
 * chsh -s /bin/zsh
 * Setup Chrome profiles
 * Set default terminal to terminator
-* Set desktop wallpapers
 * Install jdks (I Couldn't figure out how to auto-accept the license) :(
-  * sudo apt-get install oracle-java6-installer
-  * sudo apt-get install oracle-java7-installer
   * sudo apt-get install oracle-java8-installer
-* Install Evernote As Chrome Webapp and link to /usr/local/bin/evernote
-* Install Postman as chrome webapp and link to /usr/local/bin/postman
 * Keyboard Shortcuts for Spotify
   * dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+* Install GPG keys and pass
 
 # Current Issues
 * Docker does not work as docker-engine does not have a .deb yet
-* Need to add pass support
-* Need to download tools
 * Conda Support
 * git config --global user.email, user.name is not getting set

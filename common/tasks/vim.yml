@@ -29,14 +29,6 @@
   script: install_nerdtree.sh creates=/home/{{username}}/.vim/bundle/nerdtree
   when: ansible_os_family == "Debian"
 
-- name: install syntastic
-  script: install_syntastic.sh creates=/home/{{username}}/.vim/bundle/syntastic
-  when: ansible_os_family == "Debian"
-
-- name: install python-mode
-  script: install_pythonmodevim.sh creates=/home/{{username}}/.vim/bundle/python-mode
-  when: ansible_os_family == "Debian"
-
 # OSX
 - name: Installing Macvim
   homebrew_cask: name={{item}} state=present
