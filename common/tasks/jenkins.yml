@@ -1,18 +1,15 @@
 ---
 
-- name: install jenkins repo
+- name: Set seurat-users git prefs
   become: true
-  script: install_jenkins.sh
-  when: ansible_os_family == "Debian"
+  become_user: jenkins
+  script: set_git_prefs.sh /mnt/jenkins/workspace "Karl Leswing" "karl.leswing@schrodinger.com"
 
-- name: ensure apt cache is up to date
+- name: make ~/.ssh/known_hosts owned by jenkins
   become: true
-  apt: update_cache=yes
-  when: ansible_os_family == "Debian"
+  file: path=/home/jenkins/.ssh/known_hosts owner=jenkins group=jenkins
 
-- name: ensure packages are installed
-  apt: name={{item}} state=present
+- name: git pull
   become: true
-  when: ansible_os_family == "Debian"
-  with_items:
-    - jenkins
+  become_user: jenkins
+  git: repo=ssh://pdx-git.schrodinger.com/var/git/repos/seurat.git dest=/mnt/jenkins/workspace update=yes version=master accept_hostkey=true force=yes
