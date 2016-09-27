@@ -52,11 +52,3 @@
   script: install_nerdtree.sh creates=/Users/{{username}}/.vim/bundle/nerdtree
   when: ansible_os_family == "Darwin"
 
-- name: install syntastic
-  script: install_syntastic.sh creates=/Users/{{username}}/.vim/bundle/syntastic
-  when: ansible_os_family == "Darwin"
-
-- name: install python-mode
-  script: install_pythonmodevim.sh creates=/Users/{{username}}/.vim/bundle/python-mode
-  when: ansible_os_family == "Darwin"
-
