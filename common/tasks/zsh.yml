@@ -74,9 +74,9 @@
       - wget
       - nmap
       - python
-      - rtorrent
       - jython
       - openssl
+      - fortune
     when: ansible_os_family == "Darwin"
 
   - name: Installing iterm
@@ -96,3 +96,8 @@
   - name: install zsh-syntax-highlighting
     git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/Users/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     when: ansible_os_family == "Darwin"
+
+  - name: tmux movement
+    template: src=templates/tmux.conf.j2 dest=/Users/{{username}}/.tmux.conf
+    when: ansible_os_family == "Darwin"
+
