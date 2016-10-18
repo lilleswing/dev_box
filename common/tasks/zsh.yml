@@ -57,6 +57,10 @@
     template: src=templates/terminator.config.j2 dest=/home/{{username}}/.config/terminator/config
     when: ansible_os_family == "Debian"
 
+  - name: ansible config movement
+    template: src=templates/ansible.cfg.j2 dest=/home/{{username}}/.ansible.cfg force=yes
+    when: ansible_os_family == "Debian"
+
 
 # OSX
   - name: Installing utilities
@@ -95,4 +99,8 @@
 
   - name: install zsh-syntax-highlighting
     git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/Users/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    when: ansible_os_family == "Darwin"
+
+  - name: ansible config movement
+    template: src=templates/ansible.cfg.j2 dest=/Users/{{username}}/.ansible.cfg force=yes
     when: ansible_os_family == "Darwin"
