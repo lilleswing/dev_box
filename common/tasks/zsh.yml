@@ -26,6 +26,8 @@
       - sqlite3
       - htop
       - mercurial
+      - iftop
+      - iotop
     when: ansible_os_family == "Debian"
 
   - name: Install matplotlib build deps
