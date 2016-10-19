@@ -1,0 +1,1 @@
+rsync -Pav -e 'ssh -i /home/jenkins/karl_id_rsa' --delete leswing@build18.jun.dev.bb.schrodinger.com:/mnt/jenkins/workspace /mnt/jenkins/ >> ~/rsync.log

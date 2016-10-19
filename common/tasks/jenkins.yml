@@ -1,15 +1,52 @@
 ---
 
-- name: Set seurat-users git prefs
-  become: true
-  become_user: jenkins
-  script: set_git_prefs.sh /mnt/jenkins/workspace "Karl Leswing" "karl.leswing@schrodinger.com"
+#- name: Set seurat-users git prefs
+#  become: true
+#  become_user: jenkins
+#  script: set_git_prefs.sh /mnt/jenkins/workspace 'Karl Leswing' 'karl.leswing@schrodinger.com'
+#
+#- name: git pull
+#  become: true
+#  become_user: jenkins
+#  git: repo=ssh://pdx-git.schrodinger.com/var/git/repos/seurat.git dest=/mnt/jenkins/workspace update=yes version=master accept_hostkey=true force=yes
 
-- name: make ~/.ssh/known_hosts owned by jenkins
-  become: true
-  file: path=/home/jenkins/.ssh/known_hosts owner=jenkins group=jenkins
+#- name: make ~/.ssh/known_hosts owned by jenkins
+#  become: true
+#  become_user: jenkins
+#  shell: rm -rf /mnt/jenkins/workspace
 
-- name: git pull
-  become: true
-  become_user: jenkins
-  git: repo=ssh://pdx-git.schrodinger.com/var/git/repos/seurat.git dest=/mnt/jenkins/workspace update=yes version=master accept_hostkey=true force=yes
+#- name: give jenkins Karl's Private Key
+#  become: true
+#  become_user: jenkins
+#  copy: src=karl_id_rsa dest=/home/jenkins/karl_id_rsa mode=600
+#
+#- name: run rsync
+#  become: true
+#  become_user: jenkins
+#  script: rsync_helper.sh
+#
+#- name: remove karl's private key
+#  become: true
+#  become_user: jenkins
+#  file: path=/home/jenkins/karl_id_rsa state=absent
+
+#- name: reset_hard_origin_master
+#  become: true
+#  become_user: jenkins
+#  script: reset_hard.sh
+
+#- name: remove users.js
+#  become: true
+#  file: path=/var/chef/cache/users.js state=absent
+
+- name: Insert seurat user
+  script: add_seurat_user.sh
+
+
+
+
+
+
+
+
+
