@@ -28,6 +28,7 @@
       - mercurial
       - iftop
       - iotop
+      - ncdu
     when: ansible_os_family == "Debian"
 
   - name: Install matplotlib build deps
