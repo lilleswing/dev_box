@@ -39,8 +39,13 @@
 #  become: true
 #  file: path=/var/chef/cache/users.js state=absent
 
-- name: Insert seurat user
-  script: add_seurat_user.sh
+#- name: Insert seurat user
+#  script: add_seurat_user.sh
+
+ - name: delete backups
+   become: true
+   become_user: seurat
+   shell: rm -rf /home/seurat/backups/*
 
 
 
