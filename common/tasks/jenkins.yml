@@ -44,8 +44,7 @@
 
  - name: delete backups
    become: true
-   become_user: seurat
-   shell: rm -rf /home/seurat/backups/*
+   shell: df -h | grep /dev/xvda1
 
 
 
