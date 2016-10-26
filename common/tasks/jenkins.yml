@@ -19,7 +19,7 @@
 #  become: true
 #  become_user: jenkins
 #  copy: src=karl_id_rsa dest=/home/jenkins/karl_id_rsa mode=600
-#
+
 #- name: run rsync
 #  become: true
 #  become_user: jenkins
@@ -42,15 +42,13 @@
 #- name: Insert seurat user
 #  script: add_seurat_user.sh
 
- - name: delete backups
-   become: true
-   shell: df -h | grep /dev/xvda1
+# - name: delete backups
+#   become: true
+#   shell: df -h | grep /dev/xvda1
 
-
-
-
-
-
+- name: give jenkins admin
+  become: true
+  user: name=jenkins groups=jenkins,sudo
 
 
 
