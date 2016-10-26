@@ -84,6 +84,8 @@
       - jython
       - openssl
       - fortune
+      - ncdu
+      - iotop
     when: ansible_os_family == "Darwin"
 
   - name: Installing iterm
