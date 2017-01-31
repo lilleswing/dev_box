@@ -85,7 +85,9 @@
       - openssl
       - fortune
       - ncdu
-      - iotop
+      - xclip
+      - xquartz
+      - reattach-to-user-namespace
     when: ansible_os_family == "Darwin"
 
   - name: Installing iterm

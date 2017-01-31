@@ -28,3 +28,4 @@ bash run.sh
 * Docker does not work as docker-engine does not have a .deb yet
 * Conda Support
 * git config --global user.email, user.name is not getting set
+* Fix tmux.conf for copy/paste on osx
