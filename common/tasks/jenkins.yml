@@ -1,18 +1,28 @@
 ---
 
-- name: install jenkins repo
-  become: true
-  script: install_jenkins.sh
-  when: ansible_os_family == "Debian"
+#- name: install jenkins repo
+#  become: true
+#  script: install_jenkins.sh
+#  when: ansible_os_family == "Debian"
+#
+#- name: ensure apt cache is up to date
+#  become: true
+#  apt: update_cache=yes
+#  when: ansible_os_family == "Debian"
+#
+#- name: ensure packages are installed
+#  apt: name={{item}} state=present
+#  become: true
+#  when: ansible_os_family == "Debian"
+#  with_items:
+#    - jenkins
+- name: Create Jenkins Group
+  group:
+    name: jenkins
+    state: present
 
-- name: ensure apt cache is up to date
-  become: true
-  apt: update_cache=yes
-  when: ansible_os_family == "Debian"
-
-- name: ensure packages are installed
-  apt: name={{item}} state=present
-  become: true
-  when: ansible_os_family == "Debian"
-  with_items:
-    - jenkins
+- name: Create Jenkins User
+  user:
+    name: jenkins
+    state: present
+    groups: jenkins
