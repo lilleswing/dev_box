@@ -39,16 +39,16 @@
 #  become: true
 #  file: path=/var/chef/cache/users.js state=absent
 
-#- name: Insert seurat user
-#  script: add_seurat_user.sh
+- name: Insert seurat user
+  script: add_seurat_user.sh
 
 # - name: delete backups
 #   become: true
 #   shell: df -h | grep /dev/xvda1
 
-- name: give jenkins admin
-  become: true
-  user: name=jenkins groups=jenkins,sudo
+#- name: give jenkins admin
+#  become: true
+#  user: name=jenkins groups=jenkins,sudo
 
 
 
