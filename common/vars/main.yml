@@ -4,7 +4,7 @@ username: leswing
 user_email: lilleswing@gmail.com
 
 # Versions
-intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-2016.2.2.tar.gz
+intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-2016.3.4.tar.gz
 docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-xenial main
 rstudio_deb_url: https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
 

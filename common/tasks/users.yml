@@ -1,0 +1,13 @@
+- name: add group
+  group:
+    name: huanghao
+    state: present
+
+- name: add user
+  become: true
+  user:
+    name: huanghao
+    shell: /bin/bash
+    password: "{{ 'password' | password_hash('sha512') }}"
+    home: /home/huanghao
+    groups: sudo,huanghao
