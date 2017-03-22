@@ -11,7 +11,7 @@
 
   - include: postgres.yml
   - include: intellij.yml
-  - include: hipchat.yml
+  #- include: hipchat.yml
   - include: nginx.yml
   #- include: docker.yml
   #- include: latex.yml
