@@ -23,9 +23,3 @@ bash run.sh
 * Keyboard Shortcuts for Spotify
   * dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 * Install GPG keys and pass
-
-# Current Issues
-* Docker does not work as docker-engine does not have a .deb yet
-* Conda Support
-* git config --global user.email, user.name is not getting set
-* Fix tmux.conf for copy/paste on osx
