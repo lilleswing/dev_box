@@ -1,0 +1,8 @@
+---
+- name: Install Conda
+  script: install_conda.sh {{ intellij_binary_url }} creates=/home/{{username}}/anaconda3
+  when: ansible_os_family == "Debian"
+
+# If you are afraid it is old
+# conda update conda
+# conda update anaconda

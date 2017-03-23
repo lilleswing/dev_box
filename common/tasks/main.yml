@@ -1,22 +1,26 @@
 ---
   - include: zsh.yml
   - include: chrome.yml
-  - include: java.yml
   - include: vim.yml
+  - include: git.yml
+  - include: pass.yml
+  - include: misc_tools.yml
+  - include: conda.yml
+  - include: java.yml
   - include: node.yml
   - include: golang.yml
   - include: r-lang.yml
-  - include: shutter.yml
-  #- include: firewall.yml
 
   - include: postgres.yml
   - include: intellij.yml
-  #- include: hipchat.yml
   - include: nginx.yml
+  #- include: hipchat.yml
   #- include: docker.yml
   #- include: latex.yml
+  #- include: firewall.yml
 
   #- include: wine.yml
+  - include: shutter.yml
   - include: spotify.yml
   - include: vlc.yml
   - include: gimp.yml

@@ -1,0 +1,3 @@
+---
+- name: Setup Git Prefs
+  script: set_git_prefs.sh {{ username }} {{ full_name }}

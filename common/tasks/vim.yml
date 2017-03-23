@@ -17,6 +17,10 @@
   copy: src=vimrc dest=/home/{{username}}/.vimrc
   when: ansible_os_family == "Debian"
 
+- name: vimrc movement
+  copy: src=vimrc dest=/home/{{username}}/.ideavimrc
+  when: ansible_os_family == "Debian"
+
 - name: install pathogen
   script: install_pathogen.sh creates=/home/{{username}}/.vim/autoload/pathogen.vim
   when: ansible_os_family == "Debian"
