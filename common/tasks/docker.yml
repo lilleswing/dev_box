@@ -1,4 +1,9 @@
 ---
+- name: Apt-Get Update
+  become: true
+  apt: update_cache=yes
+  when: ansible_os_family == "Debian"
+
 - name: Install Docker repo
   become: true
   script: install_docker_repo.sh
@@ -24,19 +29,20 @@
     - ca-certificates
   when: ansible_os_family == "Debian"
 
-- name: Move Docker Configuration to non-standard subnet
-  become: true
-  copy: src=docker.conf dest=/etc/default/docker
-  when: ansible_os_family == "Debian"
-
-  # You might still need to copy over docker.service to /lib/systemd/system/docker.service
-  # It depends if docker has gotten its shit together to source /etc/default/docker
-- name: Update Docket Service File
-  become: true
-  copy: src=docker.service dest=/lib/systemd/system/docker.service
-  when: ansible_os_family == "Debian"
-
-- name: Delete old network bridge
-  become: true
-  script: docker_delete_network_bridge.sh
-  when: ansible_os_family == "Debian"
+# Needed when on a subnet that docker uses by default. i.e. Schrodinger New York
+#- name: Move Docker Configuration to non-standard subnet
+#  become: true
+#  copy: src=docker.conf dest=/etc/default/docker
+#  when: ansible_os_family == "Debian"
+#
+#  # You might still need to copy over docker.service to /lib/systemd/system/docker.service
+#  # It depends if docker has gotten its shit together to source /etc/default/docker
+#- name: Update Docket Service File
+#  become: true
+#  copy: src=docker.service dest=/lib/systemd/system/docker.service
+#  when: ansible_os_family == "Debian"
+#
+#- name: Delete old network bridge
+#  become: true
+#  script: docker_delete_network_bridge.sh
+#  when: ansible_os_family == "Debian"

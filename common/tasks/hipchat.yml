@@ -11,7 +11,7 @@
 
 - name: Install Hipchat
   become: true
-  apt: name=hipchat state=present
+  apt: name=hipchat4 state=present
   when: ansible_os_family == "Debian"
 
 # OSX
