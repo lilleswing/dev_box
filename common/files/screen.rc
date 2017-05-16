@@ -12,10 +12,10 @@ bind r source ~/.screenrc
 bind C screen
 
 # split horizontally creating new shell prompt
-bind - eval split 'focus down' screen
+bind s eval split 'focus down' screen
 
 # split vertically creating new shell prompt
-bind | eval 'split -v' 'focus right' screen
+bind v eval 'split -v' 'focus right' screen
 
 hardstatus off
 hardstatus alwayslastline
