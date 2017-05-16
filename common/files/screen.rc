@@ -1,0 +1,22 @@
+# # vim-like navigation between windows
+bind h focus left
+bind j focus down
+bind k focus up
+bind l focus right
+
+# reload configuration file (note that this creates extra layout due to
+# `layout new initial` command)
+bind r source ~/.screenrc
+
+# create new window with a shell prompt
+bind C screen
+
+# split horizontally creating new shell prompt
+bind - eval split 'focus down' screen
+
+# split vertically creating new shell prompt
+bind | eval 'split -v' 'focus right' screen
+
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
