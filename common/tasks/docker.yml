@@ -30,6 +30,17 @@
   when: ansible_os_family == "Debian"
 
 # Needed when on a subnet that docker uses by default. i.e. Schrodinger New York
+#
+#- name: Installing Tools
+#  apt: name={{item}} state=present
+#  become: true
+#  with_items:
+#    - bridge-utils
+#    - apt-transport-https
+#    - ca-certificates
+#  when: ansible_os_family == "Debian"
+#
+#
 #- name: Move Docker Configuration to non-standard subnet
 #  become: true
 #  copy: src=docker.conf dest=/etc/default/docker

@@ -1,14 +1,14 @@
 - name: add group
   become: true
   group:
-    name: newuser
+    name: jenkins
     state: present
 
 - name: add user
   become: true
   user:
-    name: newuser
+    name: jenkins
     shell: /bin/bash
     password: "{{ 'password' | password_hash('sha512') }}"
-    home: /home/rbharath
-    groups: sudo,newuser
+    home: /var/lib/jenkins
+    groups: sudo,jenkins
