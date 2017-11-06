@@ -5,10 +5,10 @@ user_email: lilleswing@gmail.com
 full_name: Karl Leswing
 
 # Versions
-intellij_binary_url: https://download.jetbrains.com/idea/ideaIU-2017.1.tar.gz
-conda_binary_url: https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh
-docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-xenial main
-rstudio_deb_url: https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
+intellij_binary_url: https://download-cf.jetbrains.com/idea/ideaIU-2017.2.5.tar.gz
+conda_binary_url: https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+#docker_list_deb: deb https://apt.dockerproject.org/repo ubuntu-xenial main
+#rstudio_deb_url: https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
 
 # Not really configurations
 # I should hardcode these

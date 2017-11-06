@@ -1,0 +1,6 @@
+- name: Installing utilities
+  apt: name={{item}} state=present
+  become: true
+  with_items:
+    - gitter
+  when: ansible_os_family == "Debian"

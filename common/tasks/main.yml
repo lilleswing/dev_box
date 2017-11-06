@@ -5,7 +5,7 @@
   - include: git.yml
   - include: pass.yml
   - include: misc_tools.yml
-  #- include: conda.yml # Needs to be tested on fresh install
+  - include: conda.yml # Needs to be tested on fresh install
   - include: java.yml
   - include: node.yml
   - include: golang.yml

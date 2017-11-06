@@ -2,9 +2,8 @@
 
 cd /tmp
 wget $1 -O anaconda.sh
-bash anaconda.sh -b -p $HOME/anaconda3
+bash anaconda.sh -b -p $HOME/miniconda3
 
-export PATH="$HOME/anaconda3/bin:$PATH"
+export PATH="$HOME/miniconda3/bin:$PATH"
 conda create -y --name daily
 conda update conda
-conda update anaconda
