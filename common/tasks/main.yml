@@ -1,31 +1,31 @@
 ---
-  - include: zsh.yml
-  - include: chrome.yml
-  - include: vim.yml
-  - include: git.yml
-  - include: pass.yml
-  - include: misc_tools.yml
-  - include: conda.yml # Needs to be tested on fresh install
-  - include: java.yml
-  - include: node.yml
-  - include: golang.yml
-  - include: r-lang.yml
+  - include_tasks: zsh.yml
+  - include_tasks: chrome.yml
+  - include_tasks: vim.yml
+  - include_tasks: git.yml
+  - include_tasks: pass.yml
+  - include_tasks: misc_tools.yml
+  - include_tasks: conda.yml # Needs to be tested on fresh install
+  - include_tasks: java.yml
+  - include_tasks: node.yml
+  - include_tasks: golang.yml
+  - include_tasks: r-lang.yml
 
-  - include: postgres.yml
-  - include: intellij.yml
-  - include: nginx.yml
-  #- include: hipchat.yml
-  #- include: docker.yml
-  #- include: latex.yml
-  #- include: firewall.yml
+  - include_tasks: postgres.yml
+  - include_tasks: intellij.yml
+  - include_tasks: nginx.yml
+  #- include_tasks: hipchat.yml
+  #- include_tasks: docker.yml
+  - include_tasks: latex.yml
+  #- include_tasks: firewall.yml
 
-  #- include: wine.yml
-  - include: shutter.yml
-  - include: spotify.yml
-  - include: vlc.yml
-  - include: gimp.yml
+  #- include_tasks: wine.yml
+#  - include_tasks: shutter.yml
+#  - include_tasks: spotify.yml
+#  - include_tasks: vlc.yml
+#  - include_tasks: gimp.yml
 
-  #- include: monit.yml
-  #- include: samba.yml
-  #- include: jenkins.yml
-  #- include: users.yml
+  #- include_tasks: monit.yml
+  #- include_tasks: samba.yml
+  #- include_tasks: jenkins.yml
+#   - include_tasks: users.yml

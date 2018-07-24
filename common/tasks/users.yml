@@ -1,14 +1,14 @@
 - name: add group
   become: true
   group:
-    name: jenkins
+    name: qsar_smash
     state: present
 
 - name: add user
   become: true
   user:
-    name: jenkins
+    name: qsar_smash
     shell: /bin/bash
     password: "{{ 'password' | password_hash('sha512') }}"
-    home: /var/lib/jenkins
-    groups: sudo,jenkins
+    home: /home/qsar_smash
+    groups: sudo,qsar_smash
