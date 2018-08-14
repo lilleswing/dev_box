@@ -38,22 +38,19 @@ set-option -g pane-active-border-fg black
 setw -g monitor-activity on
 set -g visual-activity on
 
-# Use vim keybindings in copy mode
-setw -g mode-keys vi
-
-# Setup 'v' to begin selection as in Vim
+{% if ansible_os_family is equalto "Debian" %}
+# TODO(LESWING) update for tmux 2.6 conf syntax
 bind-key -t vi-copy v begin-selection
 unbind -t vi-copy Enter
-
-
-{% if ansible_os_family is equalto "Debian" %}
 bind-key -t vi-copy y copy-pipe "xclip -sel clip -i"
 bind-key -t vi-copy Enter copy-pipe "xclip -sel clip -i"
 {% endif %}
 
 {% if ansible_os_family is equalto "Darwin" %}
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
 {% endif %}
 
 # Allow the arrow key to be used immediately after changing windows
