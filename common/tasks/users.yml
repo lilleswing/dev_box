@@ -1,14 +1,15 @@
 - name: add group
   become: true
   group:
-    name: qsar_smash
+    name: timr
     state: present
 
 - name: add user
   become: true
   user:
-    name: qsar_smash
+    state: present
+    name: timr
     shell: /bin/bash
     password: "{{ 'password' | password_hash('sha512') }}"
-    home: /home/qsar_smash
-    groups: sudo,qsar_smash
+    home: /home/timr
+    groups: sudo,timr

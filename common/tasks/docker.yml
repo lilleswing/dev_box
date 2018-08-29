@@ -1,9 +1,4 @@
 ---
-- name: Apt-Get Update
-  become: true
-  apt: update_cache=yes
-  when: ansible_os_family == "Debian"
-
 - name: Install Docker repo
   become: true
   script: install_docker_repo.sh

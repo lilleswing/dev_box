@@ -29,3 +29,4 @@
   #- include_tasks: samba.yml
   #- include_tasks: jenkins.yml
 #   - include_tasks: users.yml
+#  - include_tasks: install_qsar.yml
