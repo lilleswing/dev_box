@@ -39,11 +39,11 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 {% if ansible_os_family is equalto "Debian" %}
-# TODO(LESWING) update for tmux 2.6 conf syntax
-bind-key -t vi-copy v begin-selection
-unbind -t vi-copy Enter
-bind-key -t vi-copy y copy-pipe "xclip -sel clip -i"
-bind-key -t vi-copy Enter copy-pipe "xclip -sel clip -i"
+setw -g mode-keys vi
+unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
 {% endif %}
 
 {% if ansible_os_family is equalto "Darwin" %}
