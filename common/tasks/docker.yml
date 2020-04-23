@@ -1,21 +1,10 @@
 ---
 - name: Install Docker repo
   become: true
-  script: install_docker_repo.sh
-  when: ansible_os_family == "Debian"
-
-- name: Apt-Get Update
-  become: true
-  apt: update_cache=yes
-  when: ansible_os_family == "Debian"
-
-- name: Installing Docker
-  become: true
   apt:
     pkg:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
+      - docker.io
+      - docker-compose
   when: ansible_os_family == "Debian"
 
 # Needed when on a subnet that docker uses by default. i.e. Schrodinger New York
