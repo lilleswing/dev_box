@@ -11,22 +11,22 @@
   when: ansible_os_family == "Debian"
 
 # Needed until spotify repackages with libgcrypt20
-- name: Copy libgcryp11
-  copy: src=libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb dest=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
-  when: ansible_os_family == "Debian"
-
-- name: Install libgcrypt11
-  become: true
-  apt: deb=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb state=present
-  when: ansible_os_family == "Debian"
+#- name: Copy libgcryp11
+#  copy: src=libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb dest=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
+#  when: ansible_os_family == "Debian"
+#
+#- name: Install libgcrypt11
+#  become: true
+#  apt: deb=/tmp/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb state=present
+#  when: ansible_os_family == "Debian"
 
 - name: Installing Spotify
-  apt: name={{item}} state=present
   become: true
-  with_items:
-    - libgcrypt11-dev
-    - libgcrypt20
-    - spotify-client
+  apt: name={{item}} state=present
+    pkg:
+#    - libgcrypt11-dev
+#    - libgcrypt20
+      - spotify-client
   when: ansible_os_family == "Debian"
 
 # OSX

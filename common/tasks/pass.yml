@@ -6,10 +6,10 @@
 
 - name: Install Pass
   become: true
-  apt: name={{item}} force=yes state=present
-  when: ansible_os_family == "Debian"
-  with_items:
+  apt:
+    pkg:
       - pass
+  when: ansible_os_family == "Debian"
 
 # copy private.key to ./
 # gpg --import private.key

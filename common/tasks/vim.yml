@@ -1,12 +1,13 @@
 ---
 - name: Installing vims
   become: true
-  apt: name={{item}} state=present
+  apt:
+    pkg:
+      - vim
+      - vim-gtk
+      - curl
   when: ansible_os_family == "Debian"
-  with_items:
-    - vim
-    - vim-gtk
-    - curl
+
 
 - name: Set vim as default editor (Ubuntu)
   become: true

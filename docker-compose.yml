@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: devtools/Dockerfile
+    volumes:
+      - ./HOSTS:/HOSTS
+      - ./run.sh:/run.sh
+      - ./setup.yml:/setup.yml
+      - ./common:/common
+      - ./devtools:/devtools
+    command:
+      "bash devtools/test.sh"

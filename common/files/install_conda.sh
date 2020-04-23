@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ -d $HOME/miniconda3 ]; then
+    echo "Conda Installed"
+    exit 0
+fi
 
 cd /tmp
 wget $1 -O anaconda.sh

@@ -1,32 +1,17 @@
 ---
+  - include_tasks: users.yml
   - include_tasks: zsh.yml
   - include_tasks: chrome.yml
   - include_tasks: vim.yml
   - include_tasks: git.yml
   - include_tasks: pass.yml
   - include_tasks: misc_tools.yml
-  - include_tasks: conda.yml # Needs to be tested on fresh install
-  - include_tasks: java.yml
-  - include_tasks: node.yml
-  - include_tasks: golang.yml
-  - include_tasks: r-lang.yml
+  - include_tasks: conda.yml
 
-  - include_tasks: postgres.yml
-  - include_tasks: intellij.yml
-  - include_tasks: nginx.yml
-  #- include_tasks: hipchat.yml
-  #- include_tasks: docker.yml
-  - include_tasks: latex.yml
-  #- include_tasks: firewall.yml
+  - include_tasks: docker.yml
+  - include_tasks: shutter.yml
 
-  #- include_tasks: wine.yml
-#  - include_tasks: shutter.yml
+#  - include_tasks: latex.yml
 #  - include_tasks: spotify.yml
 #  - include_tasks: vlc.yml
 #  - include_tasks: gimp.yml
-
-  #- include_tasks: monit.yml
-  #- include_tasks: samba.yml
-  #- include_tasks: jenkins.yml
-#   - include_tasks: users.yml
-#  - include_tasks: install_qsar.yml

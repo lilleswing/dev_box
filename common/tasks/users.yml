@@ -1,15 +1,15 @@
 - name: add group
   become: true
   group:
-    name: timr
+    name: "{{ username }}"
     state: present
 
 - name: add user
   become: true
   user:
     state: present
-    name: timr
+    name: "{{ username }}"
     shell: /bin/bash
     password: "{{ 'password' | password_hash('sha512') }}"
-    home: /home/timr
-    groups: sudo,timr
+    home: "/home/{{ username }}"
+    groups: "sudo,{{ username }}"

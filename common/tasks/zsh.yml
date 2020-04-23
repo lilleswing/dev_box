@@ -1,21 +1,20 @@
 ---
-  #- name: Apt-Get Update
-  #  become: true
-  #  apt: update_cache=yes
-  #  when: ansible_os_family == "Debian"
+- name: Apt-Get Update
+  become: true
+  apt: update_cache=yes
+  when: ansible_os_family == "Debian"
 
-  - name: Installing utilities
-    apt: name={{item}} state=present
-    become: true
-    with_items:
+- name: Installing utilities
+  become: true
+  apt:
+    pkg:
       - tmux
       - autojump
       - zsh
       - terminator
       - cowsay
+      - wget
       - fortune
-      - libreadline5
-      - libreadline6
       - p7zip-full
       - build-essential
       - ant
@@ -29,90 +28,93 @@
       - iftop
       - iotop
       - ncdu
-    when: ansible_os_family == "Debian"
+  when: ansible_os_family == "Debian"
 
-  - name: Install matplotlib build deps
-    become: true
-    apt: name=python-matplotlib
-    when: ansible_os_family == "Debian"
+- name: Install matplotlib build deps
+  become: true
+  apt: name=python-matplotlib
+  when: ansible_os_family == "Debian"
 
-  - name: tmux movement
-    template: src=templates/tmux.conf.j2 dest=/home/{{username}}/.tmux.conf
-    when: ansible_os_family == "Debian"
+- name: tmux movement
+  template: src=templates/tmux.conf.j2 dest=/home/{{username}}/.tmux.conf
+  when: ansible_os_family == "Debian"
 
-  - name: oh_my_zsh install
-    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{username}}/.oh-my-zsh
-    when: ansible_os_family == "Debian"
+- name: oh_my_zsh install
+  git: repo=https://github.com/ohmyzsh/ohmyzsh.git dest=/home/{{username}}/.oh-my-zsh
+  when: ansible_os_family == "Debian"
 
-  - name: zshrc movement
-    template: src=templates/zshrc.j2 dest=/home/{{username}}/.zshrc backup=yes force=no
-    when: ansible_os_family == "Debian"
+- name: zshrc movement
+  template: src=templates/zshrc.j2 dest=/home/{{username}}/.zshrc backup=yes force=no
+  when: ansible_os_family == "Debian"
 
-  - name: install zsh-syntax-highlighting
-    git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/home/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    when: ansible_os_family == "Debian"
+- name: install zsh-syntax-highlighting
+  git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/home/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  when: ansible_os_family == "Debian"
 
-  - name: terminator solarized
-    script: set_terminator_solarized.sh
-    when: ansible_os_family == "Debian"
+- name: terminator solarized
+  script: set_terminator_solarized.sh
+  when: ansible_os_family == "Debian"
 
-  - name: terminator conf movement
-    template: src=templates/terminator.config.j2 dest=/home/{{username}}/.config/terminator/config
-    when: ansible_os_family == "Debian"
+- name: Create target directory
+  file: path=/home/{{username}}/.config/terminator/config state=directory
 
-  - name: ansible config movement
-    template: src=templates/ansible.cfg.j2 dest=/home/{{username}}/.ansible.cfg force=yes
-    when: ansible_os_family == "Debian"
+- name: terminator conf movement
+  template: src=templates/terminator.config.j2 dest=/home/{{username}}/.config/terminator/config
+  when: ansible_os_family == "Debian"
+
+- name: ansible config movement
+  template: src=templates/ansible.cfg.j2 dest=/home/{{username}}/.ansible.cfg force=yes
+  when: ansible_os_family == "Debian"
 
 
 # OSX
-  - name: Installing utilities
-    homebrew: name={{item}} state=present
-    with_items:
-      - tmux
-      - autojump
-      - zsh
-      - cowsay
-      - sqlite3
-      - htop
-      - mercurial
-      - gcc
-      - readline
-      - wget
-      - nmap
-      - python
-      - jython
-      - openssl
-      - fortune
-      - ncdu
-      - xclip
-      - xquartz
-      - reattach-to-user-namespace
-    when: ansible_os_family == "Darwin"
+- name: Installing utilities
+  homebrew: name={{item}} state=present
+  with_items:
+    - tmux
+    - autojump
+    - zsh
+    - cowsay
+    - sqlite3
+    - htop
+    - mercurial
+    - gcc
+    - readline
+    - wget
+    - nmap
+    - python
+    - jython
+    - openssl
+    - fortune
+    - ncdu
+    - xclip
+    - xquartz
+    - reattach-to-user-namespace
+  when: ansible_os_family == "Darwin"
 
-  - name: Installing iterm
-    homebrew_cask: name={{item}} state=present
-    with_items:
-      - iterm2
-    when: ansible_os_family == "Darwin"
+- name: Installing iterm
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - iterm2
+  when: ansible_os_family == "Darwin"
 
-  - name: oh_my_zsh install
-    git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/Users/{{username}}/.oh-my-zsh
-    when: ansible_os_family == "Darwin"
+- name: oh_my_zsh install
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/Users/{{username}}/.oh-my-zsh
+  when: ansible_os_family == "Darwin"
 
-  - name: zshrc movement
-    template: src=templates/zshrc.j2 dest=/Users/{{username}}/.zshrc backup=yes force=no
-    when: ansible_os_family == "Darwin"
+- name: zshrc movement
+  template: src=templates/zshrc.j2 dest=/Users/{{username}}/.zshrc backup=yes force=no
+  when: ansible_os_family == "Darwin"
 
-  - name: install zsh-syntax-highlighting
-    git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/Users/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    when: ansible_os_family == "Darwin"
+- name: install zsh-syntax-highlighting
+  git: repo=https://github.com/zsh-users/zsh-syntax-highlighting.git dest=/Users/{{username}}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  when: ansible_os_family == "Darwin"
 
-  - name: tmux movement
-    template: src=templates/tmux.conf.j2 dest=/Users/{{username}}/.tmux.conf
-    when: ansible_os_family == "Darwin"
+- name: tmux movement
+  template: src=templates/tmux.conf.j2 dest=/Users/{{username}}/.tmux.conf
+  when: ansible_os_family == "Darwin"
 
 
-  - name: ansible config movement
-    template: src=templates/ansible.cfg.j2 dest=/Users/{{username}}/.ansible.cfg force=yes
-    when: ansible_os_family == "Darwin"
+- name: ansible config movement
+  template: src=templates/ansible.cfg.j2 dest=/Users/{{username}}/.ansible.cfg force=yes
+  when: ansible_os_family == "Darwin"

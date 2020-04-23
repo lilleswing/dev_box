@@ -1,7 +1,7 @@
-- name: Download misc tools
-  git: repo=git@bitbucket.org:lilleswing/misc_tools.git dest=/home/{{username}}/bin/tools
-  when: ansible_os_family == "Debian"
-
-- name: Download misc tools
-  git: repo=git@bitbucket.org:lilleswing/misc_tools.git dest=/Users/{{username}}/bin/tools
-  when: ansible_os_family == "Darwin"
+#- name: Download misc tools
+#  git: repo=git@bitbucket.org:lilleswing/misc_tools.git dest=/home/{{username}}/bin/tools
+#  when: ansible_os_family == "Debian"
+#
+#- name: Download misc tools
+#  git: repo=git@bitbucket.org:lilleswing/misc_tools.git dest=/Users/{{username}}/bin/tools
+#  when: ansible_os_family == "Darwin"
