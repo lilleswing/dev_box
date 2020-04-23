@@ -12,4 +12,4 @@ services:
       - ./common:/common
       - ./devtools:/devtools
     command:
-      "bash devtools/test.sh"
+      "bash"

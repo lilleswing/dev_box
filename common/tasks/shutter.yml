@@ -1,6 +1,12 @@
 ---
 - name: Apt-Get Update
   become: true
+  apt_repository:
+    repo: ppa:linuxuprising/shutter
+  when: ansible_os_family == "Debian"
+
+- name: Apt-Get Update
+  become: true
   apt: update_cache=yes
   when: ansible_os_family == "Debian"
 

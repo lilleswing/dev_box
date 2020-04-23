@@ -18,9 +18,6 @@
       - p7zip-full
       - build-essential
       - ant
-      - python-dev
-      - python-virtualenv
-      - python-pip
       - xclip
       - sqlite3
       - htop
@@ -28,11 +25,6 @@
       - iftop
       - iotop
       - ncdu
-  when: ansible_os_family == "Debian"
-
-- name: Install matplotlib build deps
-  become: true
-  apt: name=python-matplotlib
   when: ansible_os_family == "Debian"
 
 - name: tmux movement
