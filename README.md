@@ -1,5 +1,5 @@
 # dev_box
-Ansible Playbook for setting up a dev box on xubuntu 18.04
+Ansible Playbook for setting up a dev box on xubuntu 20.04
 
 ## Manual TODO before running
 Trust `devtools/Dockerfile` for exact setup instructions
