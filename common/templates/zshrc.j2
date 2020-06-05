@@ -1,3 +1,9 @@
+# Stops repeat prepending inside of tmux
+if [ -f /etc/profile ]; then
+    PATH=""
+    source /etc/profile
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
